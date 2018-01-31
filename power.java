@@ -6,17 +6,9 @@ public static void main(String s[])
 {
 Scanner sc=new Scanner(System.in);
 int n=sc.nextInt();
-if(n<0)
-{
-System.out.print("negative");
-}
-else if(n>0)
-{
-System.out.print("positive");
-}
-else
-{
-System.out.print("zero");
+int m=sc.nextInt();
+  int r=n^m;
+System.out.print(r);
 }
 }
 }
