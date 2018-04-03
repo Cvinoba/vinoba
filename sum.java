@@ -5,11 +5,10 @@ public static void main(String arg[])
 {
 int a=Integer.parseInt(arg[0]);
 int count=0;
-while(a>9)
+for(int i=1;i<=a;i++)
 {
-  count=count+1;
-  a=a/10;
+  count=count+i;
 }
-System.out.println(count);
+  System.out.println(count);
 }
 }
