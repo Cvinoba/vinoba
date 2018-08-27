@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function randomNumber(max)
+{
+var rno=Math.random();
+var numExpanded=rno*max;
+var numFloored=Math.floor(numExpanded);
+return numFloored;
+}
+function letterpick()
+{
+var img=new Image();
+img.src="drop1.png";
+img.style.width='50px';
+img.style.height='50px';
+return img;
+}
+function positionpick()
+{
+
+var span=$("<span/>");
+span.css("position","absolute");
+randomPercentage=randomNumber(100)+"%";
+span.css("left",randomPercentage);
+span.css("top",0);
+span.html(letterpick());
+span.appendTo("body");
+return span;
+}
+
+function makeLetterFall()
+{
+
+var letterelement=positionpick();
+letterelement.animate({"top":"70%"},5000,function()
+{
+var p=letterelement.position();
+if(p.left>=0 && p.left<=160)
+{
+letterelement.fadeOut();
+count=count+1;
+}
+else
+{
+letterelement.animate({"top":"95%"},5000);
+}
+if(count==10)
+{
+m=m+1;
+count=0;
+alert( m+"bucket is full");
+}
+});
+}
+$(document).on();
+setInterval(makeLetterFall,100);
+
+var count=0;
+var m=0;
+</script>
+<style>
+#buc
+{
+position:absolute;
+bottom:0px;
+
+}
+</style>
+</head>
+<body>
+<div id="buc">
+<img src="bucket.png">
+</div>
+</body>
+</html>
